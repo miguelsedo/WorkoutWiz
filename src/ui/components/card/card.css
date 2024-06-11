@@ -1,0 +1,107 @@
+.card {
+  width: 304px;
+  height: 406.4px;
+  background: linear-gradient(145deg, #6a5acd, #4b0082);
+  transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+  border-radius: 15px;
+  box-shadow: 0 0 10px 5px rgba(75, 0, 130, 0.5);
+  font-size: 30px;
+  font-weight: 900;
+  position: relative;
+  overflow: hidden; 
+}
+
+.card:hover {
+  transform: scale(1.02); /* Enhance interaction feedback */
+  box-shadow: 0 0 6px 3px rgba(106, 90, 205, 0.7);
+  background: linear-gradient(145deg, #7b68ee, #5b41a9);
+  cursor: pointer;
+}
+
+.first-content {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  transition: opacity 0.2s;
+  font-size: 25px;
+  z-index: 1;
+  position: absolute;
+  
+}
+
+.card:hover .first-content {
+  opacity: 0;
+}
+
+.second-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.3s;
+  font-size: 15px;
+  z-index: 0;
+
+}
+
+.card:hover .second-content {
+  opacity: 1;
+}
+
+.workout-plan {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.exercise-group {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  color: white;
+  font-weight: bold;
+}
+
+p {
+  margin: 5px 0;
+  color: white;
+}
+
+.custom-text {
+  color: white;
+  font-size: 24px;
+  font-weight: 300;
+  margin: 0; /* Eliminate default margins */
+}
+.add-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 304px;
+  height: 406.4px;
+  border: 2px dashed rgba(255, 255, 255, 0.295);
+  border-radius: 15px;
+  background-color: rgba(15, 15, 15, 0.192);
+  color: rgba(255, 255, 255, 0.712);
+  font-size: 4rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.add-card:hover {
+  background-color: rgba(87, 87, 87, 0.212);
+  transform: scale(1.01);
+}

@@ -1,0 +1,42 @@
+@keyframes fadeInScale {
+    0% {
+        border: 2px dashed rgba(255, 255, 255, 0);
+        opacity: 0;
+    }
+    100% {
+        border: 2px dashed rgba(255, 255, 255, 0.295);
+        opacity: 1;
+    }
+}
+
+.exercise-entry {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 16px;
+    margin: 8px 0;
+    border-radius: 15px;
+    background-color: rgba(15, 15, 15, 0.192);
+    color: rgba(255, 255, 255, 0.712);
+    font-size: 1.25rem;
+    cursor: pointer;
+    border: 2px dashed rgba(255, 255, 255, 0); 
+    opacity: 0; 
+    animation: fadeInScale 0.2s ease-out forwards; 
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.exercise-entry:hover {
+    background-color: rgba(87, 87, 87, 0.212);
+    transform: scale(1.02);
+}
+
+.exercise-entry:hover .editIcon {
+    visibility: visible;
+    color: white;
+}
+
+.editIcon {
+    color: white;
+    visibility: hidden;
+}
