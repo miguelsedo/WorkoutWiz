@@ -11,7 +11,7 @@ export const InformacionPersonal = () => {
   const { userData, setUserData } = useContext(UserContext);
   const navigate = useNavigate();
 
-  // Local state to manage form data
+  //Local state
   const [formData, setFormData] = useState({
     Nombre: '',
     Apellidos: '',
@@ -20,10 +20,9 @@ export const InformacionPersonal = () => {
     Peso: ''
   });
 
-  // State to manage Snackbar visibility
   const [openSnackbar, setOpenSnackbar] = useState(false);
 
-  // Synchronize local state with global state
+  // Sincronizar estado local con el global
   useEffect(() => {
     setFormData({
       Nombre: userData.Nombre || '',
@@ -45,18 +44,18 @@ export const InformacionPersonal = () => {
   const handleSave = async () => {
     const { Nombre, Apellidos, Edad, Altura, Peso } = formData;
 
-    // Check if all fields are filled
+    // Check si la informacion esta entera
     if (!Nombre || !Apellidos || !Edad || !Altura || !Peso) {
       console.error('Please fill in all fields');
       return;
     }
 
     try {
-      await setUserData(formData); // Update global context and trigger backend update
-      setOpenSnackbar(true); // Open the Snackbar on success
+      await setUserData(formData); 
+      setOpenSnackbar(true); //
       setTimeout(() => {
-        setOpenSnackbar(false); // Close the Snackbar after 3 seconds
-        navigate('/'); // Navigate to the homepage
+        setOpenSnackbar(false);
+        navigate('/');
       }, 3000);
     } catch (error) {
       console.error('Failed to update data:', error);
@@ -131,7 +130,7 @@ export const InformacionPersonal = () => {
                     ...formData
                   }
                 }}
-                onError={handleSave} // Trigger handleSave on success
+                onSuccess={handleSave} //onSuccess, handleSave
                 content="Guardar"
               />
             </Grid>

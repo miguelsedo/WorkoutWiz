@@ -12,7 +12,6 @@ export const AppLayout = ({ children }) => {
   const [openSnackbar, setOpenSnackbar] = useState(false);
 
   useEffect(() => {
-    // Check completeness only when not loading
     if (!isLoading && (!userData || !userData.Nombre || !userData.Apellidos || !userData.Edad || !userData.Altura || !userData.Peso)) {
       navigate('/informacion-personal');
       setOpenSnackbar(true);
@@ -59,3 +58,4 @@ export const AppLayout = ({ children }) => {
     </Box>
   );
 };
+

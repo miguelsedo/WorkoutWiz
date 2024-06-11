@@ -65,7 +65,7 @@ export default function CustomizedSlider({ defaultValue, minValue, maxValue, lef
   const handleChange = (event, value) => {
     setSliderValue(value);
     if (onChange) {
-      onChange(value); // Notify parent component about the change
+      onChange(value);
     }
   };
 

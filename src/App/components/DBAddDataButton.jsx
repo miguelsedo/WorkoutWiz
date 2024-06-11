@@ -15,7 +15,7 @@ function AddDataButton({ endpoint, data, onSuccess, onError, content, from }) {
       if (response.ok) {
         const result = await response.json();
         onSuccess && onSuccess(result);
-        console.log("Data added successfully:", result); // Log success message
+        console.log("Data added successfully:", result);
       } else {
         onError && onError(`Failed to add data: ${response.status} ${response.statusText}`);
       }
@@ -36,3 +36,4 @@ function AddDataButton({ endpoint, data, onSuccess, onError, content, from }) {
 }
 
 export default AddDataButton;
+

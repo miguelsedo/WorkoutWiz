@@ -33,13 +33,13 @@ export const TrainingPageEdit = () => {
             console.log('Parsed Exercise:', parsedResponse.ejercicio);
             console.log('Parsed Details:', parsedResponse.details);
             
-            // Send the update request
+            // Update ejercicio concreto en la bd
             await axios.put(`http://localhost:3001/update-exercise/${userId}/${exercise.exercise_id}`, {
                 ejercicio: parsedResponse.ejercicio,
                 details: parsedResponse.details
             });
 
-            // Update the state to reflect the changes
+            // Actualizar estado
             setRoutineDetails(prevState => {
                 const updatedDays = prevState.days.map(day => {
                     return {
@@ -60,10 +60,9 @@ export const TrainingPageEdit = () => {
                 return { ...prevState, days: updatedDays };
             });
 
-            // Log the successful update
-            console.log('Exercise updated successfully');
+            console.log('Ejercicio actualizado');
         } catch (error) {
-            console.error('Error generating or updating exercise:', error);
+            console.error('Error:', error);
         } finally {
             setLoadingExercise(false);
         }

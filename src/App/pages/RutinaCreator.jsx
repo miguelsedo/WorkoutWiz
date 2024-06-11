@@ -52,31 +52,24 @@ export const RutinaCreator = () => {
       setDias(content);
       setSelectedDiasButton(index);
   };
-
   const handleExperienciaChange = (value) => {
       setExperienciaValue(value);
   };
-
   const handleActividadChange = (value) => {
       setActividadValue(value);
   };
-
   const handleEntrenosChange = (value) => {
       setEntrenosValue(value);
   };
-
   const handleInputChange = (event) => {
-      setInputValue(event.target.value || null); // Set input value or null if empty
+      setInputValue(event.target.value || null); 
   };
-
   const handleSuccess = (response) => {
       console.log('Success:', response);
   };
-
   const handleError = (error) => {
       console.error('Error:', error);
   };
-
   const [errorMessage, setErrorMessage] = useState('');
 
   const handleButtonClick = (goalId) => {
@@ -153,10 +146,9 @@ export const RutinaCreator = () => {
           const parsedData = parseTrainingPlan(rawResponse);
           console.log('Parsed Data:', parsedData);
 
-          // Save the parsed training plan to the database
+          // Guardar en db
           await saveTrainingPlan(parsedData, objetivo);
 
-          // Clear error message on success
           setErrorMessage('');
       } catch (error) {
           console.error('Error:', error.message);
@@ -167,10 +159,10 @@ export const RutinaCreator = () => {
   }
   };
 
-  // Function to parse the training plan
+
   const parseTrainingPlan = (response) => {
     if (!response) {
-        throw new Error('Response is undefined or null');
+        throw new Error('Sin respuesta');
     }
 
     const days = response.split(/D[íi]a \d+/).filter(Boolean);
@@ -182,40 +174,41 @@ export const RutinaCreator = () => {
         }
 
         const dayLines = dayContent.trim().split('\n').filter(Boolean);
-        const titleLine = dayLines[0].replace(/"/g, '').trim();  // Extract the title line
-        const title = titleLine.replace(/^Día \d+ /, '');  // Remove the day indicator (e.g., Día 1)
+        const titleLine = dayLines[0].replace(/"/g, '').trim(); 
+        const title = titleLine.replace(/^Día \d+ /, ''); 
 
         const exercises = dayLines.slice(1).map((line, lineIndex) => {
             const [exercise, details] = line.split(':');
             if (!exercise || !details) {
-                throw new Error(`Exercise or details are undefined for day ${index + 1}, line ${lineIndex + 1}`);
+                throw new Error(`Formato incorrecto en ${index + 1}, line ${lineIndex + 1}`);
             }
             return {
                 exercise: exercise.replace('-', '').trim(),
                 details: details.trim(),
-                resumen_dia: `Día ${index + 1} ${title}`  // Add resumen_dia to each exercise
+                resumen_dia: `Día ${index + 1} ${title}` 
             };
         });
 
-        console.log(`Day ${index + 1} Title: ${title}`);
-        console.log(`Day ${index + 1} Exercises:`, exercises);
+        console.log(`Day ${index + 1} Titlo: ${title}`);
+        console.log(`Day ${index + 1} Ejercicios:`, exercises);
 
         return {
             title: `Día ${index + 1} ${title}`,
             resumen_dia: `Día ${index + 1} ${title}`,
             exercises,
-            day: index + 1  // Add day number
+            day: index + 1
         };
     });
 };
 
-  // Function to save the training plan to the database
+
+
   const saveTrainingPlan = async (trainingPlan, goal) => {
       const payload = {
           userId: uid,
           trainingPlan: trainingPlan.map((day, index) => ({
               ...day,
-              day: index + 1 // Add day number
+              day: index + 1 //Numerar dias
           })),
           goal: goal
       };

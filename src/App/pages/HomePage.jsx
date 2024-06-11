@@ -20,14 +20,14 @@ export const HomePage = () => {
         <section className="animate__animated animate__fadeIn">
           <ContentGrid width='100%'>
 
-              <Typography  variant='h2' style={{ color: '#be82ff' }}sx={{ mb: -2 }}>Bienvenido a</Typography> {/* White text color */}
+              <Typography  variant='h2' style={{ color: '#be82ff' }}sx={{ mb: -2 }}>Bienvenido a</Typography>
               <Typography variant='h1' sx={{ mb: 4 }}>
               <span style={{
                 background: `radial-gradient(circle, #be82ff -200%, #ffffff)`,
                 'WebkitBackgroundClip': 'text',
                 'WebkitTextFillColor': 'transparent',
                 fontWeight: 'bold',
-                textShadow: '0px 0px 20px #be82ff' // White outline
+                textShadow: '0px 0px 20px #be82ff'
               }}>WorkoutWiz
               </span>
               </Typography>
