@@ -7,5 +7,6 @@ export default defineConfig({
     host: '0.0.0.0', // Listen on all network interfaces
     port: 5173, // You can change this port if needed
     strictPort: true, // Make sure the port is used, otherwise exit
-  },
+    open: true,     
+    },
 });
