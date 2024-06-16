@@ -36,7 +36,7 @@ db.connect(err => {
 
 // Conexión GPT-3.5-turbo
 async function interactWithGPT(prompt) {
-    const OPENAI_API_KEY = ''; 
+    const OPENAI_API_KEY = 'API'; 
 
     try {
         const response = await axios.post('https://api.openai.com/v1/chat/completions', {
