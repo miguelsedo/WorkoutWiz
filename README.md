@@ -1,8 +1,9 @@
-# React + Vite
+WorkoutWiz: Your AI-Powered Personal Trainer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+WorkoutWiz is a web app that revolutionizes fitness by providing personalized workout plans and gym optimization tools.
 
-Currently, two official plugins are available:
+Designed by Gym users for Gym users.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+WorkoutWiz is a project that combines React, Node.js, and AI to transform the way you experience fitness.
+
+Visit www.workoutwiz.eu to start your personalized fitness journey!
