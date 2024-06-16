@@ -16,7 +16,7 @@ export const RutinaCreator = () => {
 
   const { experiencia, actividad, onInputChange } = useForm({
     experiencia: '1',
-    actividad: '30',
+    actividad: '20',
   });
 
   const [response, setResponse] = useState('');
