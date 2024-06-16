@@ -108,28 +108,51 @@ p {
 /* Media query for smaller screens */
 @media (max-width: 600px) {
   .card, .add-card {
-    width: 180px;
-    height: 240px;
-    font-size: 20px; /* Reduced base font size */
+    width: 140px; /* Adjust width to fit two cards side by side */
+    height: 200px; /* Adjust height proportionally */
+    font-size: 14px; /* Reduced base font size */
+    display: flex;
+    flex-direction: column;
   }
 
   .first-content {
-    font-size: 18px; /* Kept the title slightly larger */
+    font-size: 20px; /* Adjusted title size */
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .second-content {
-    font-size: 12px; /* Reduced content font size */
+    font-size: 10px; /* Reduced content font size */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   h3 {
-    font-size: 1.1em; /* Slightly reduced */
+    font-size: 1em; /* Slightly reduced */
   }
 
   p, .custom-text {
-    font-size: 12px; /* Reduced further for smaller screens */
+    font-size: 10px; /* Reduced further for smaller screens */
   }
 
   .add-card {
-    font-size: 2rem;
+    font-size: 1.5rem; /* Reduced font size */
   }
+
+  .workout-plan {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Adjust the gap value to your preference */
+  }
+
+  .exercise-group {
+    margin-bottom: 5px; /* Add margin to the bottom of each group */
+  }
+  
 }
+
+
+

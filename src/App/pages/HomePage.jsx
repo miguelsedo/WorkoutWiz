@@ -1,15 +1,15 @@
 import { Box, Grid, Link, Typography, useMediaQuery } from "@mui/material";
 import { AppLayout } from "../layout/AppLayout";
 import ContentGrid from "../components/ContentGrid";
-import IASphere from "../components/images/FloatingSphere";
-import "../../ui/components/buttonlearnmore.css";
 import CustomCard from "../../ui/components/card/card";
-
 import { Link as RouterLink } from "react-router-dom";
 import GoalSelector from "../components/goalselector";
+import CustomizedSlider from "../components/prettoslider";
+import '../../ui/components/buttonlearnmore.css';
 import '../../ui/components/downarrow/downarrow.css';
 import '../components/selectorbutton/selectorbutton.css';
-import CustomizedSlider from "../components/prettoslider";
+import IASphere from "../components/images/FloatingSphere";
+import "../../ui/components/buttonlearnmore.css";
 
 export const HomePage = () => {
   const isSmallScreen = useMediaQuery('(max-width: 600px)');
@@ -35,8 +35,7 @@ export const HomePage = () => {
           </svg>
         </ContentGrid>
       </section>
-      
-      <section>
+            <section>
         <ContentGrid width='100%' sx={{ padding: isSmallScreen ? '0 10px' : '0' }}>
           <IASphere />
           <Typography variant={isSmallScreen ? 'h6' : 'h3'} style={{ color: '#be82ff' }} sx={{ mt: 3, mb: isSmallScreen ? 1 : -1 }}>Your personal trainer powered by {' '}
@@ -77,7 +76,7 @@ export const HomePage = () => {
             <path className="a2" d="M0 20 L30 52 L60 20"></path>
             <path className="a3" d="M0 40 L30 72 L60 40"></path>
           </svg>
-          <Typography variant={isSmallScreen ? 'h5' : 'h2'} gutterBottom style={{ color: '#fff' }} sx={{ mt: isSmallScreen ? -8 : -10, mb: isSmallScreen ? 2 : 0 }}>
+          <Typography variant={isSmallScreen ? 'h5' : 'h2'} gutterBottom style={{ color: '#fff' }} sx={{ mt: isSmallScreen ? -8 : -10, mb: isSmallScreen ? 2 : 1 }}>
             First enter your data
           </Typography>
 
@@ -95,7 +94,7 @@ export const HomePage = () => {
               rightText=" < 24 months"
             />
           </Grid>
-          <Grid item style={{ width: '100%', maxWidth: isSmallScreen ? '300px' : '600px' }}>
+          <Grid item style={{ width: '100%', maxWidth: isSmallScreen ? '300px' : '600px'}}>
             <Typography variant="h6" style={{ color: '#fff' }}>
               Activity level
             </Typography>
@@ -114,7 +113,7 @@ export const HomePage = () => {
               Current trainings per week
             </Typography>
           </Grid>
-          <Grid item container alignItems="center" justifyContent="space-between" style={{ width: '100%', maxWidth: isSmallScreen ? '300px' : '600px' }}>
+          <Grid item container alignItems="center" justifyContent="space-between" style={{ width: '100%', maxWidth: isSmallScreen ? '300px' : '600px' }} marginBottom={3}>
             <CustomizedSlider
               defaultValue={4}
               minValue={0}
@@ -124,7 +123,7 @@ export const HomePage = () => {
             />
           </Grid>
 
-          <ContentGrid width='100%' maxWidth={isSmallScreen ? '300px' : '600px'} marginTop={-5}>
+          <ContentGrid width='100%' maxWidth={isSmallScreen ? '300px' : '600px'}>
             <Typography variant='h5' gutterBottom style={{ color: '#be82ff' }}>Then select a goal</Typography>
             <GoalSelector options={['Loose weight', 'Gain muscle', 'Improve cardio']} />
           </ContentGrid>
@@ -133,7 +132,7 @@ export const HomePage = () => {
 
       <section>
         <ContentGrid width='100%' sx={{ padding: isSmallScreen ? '0 10px' : '0' }}>
-          <Typography variant={isSmallScreen ? 'h6' : 'h3'} sx={{ mt: 3, mb: 5 }}
+          <Typography variant={isSmallScreen ? 'h6' : 'h3'} sx={{ mt: 3, mb: 3 }}
             style={{
               background: `radial-gradient(circle, #42C9FF 30%, #FF00D4)`,
               WebkitBackgroundClip: 'text',
@@ -141,10 +140,10 @@ export const HomePage = () => {
               fontWeight: 'bold',
               textShadow: '0px 0px 4px #be82ff'
             }}>Get a training plan like this!</Typography>
-          <Box sx={{ flexGrow: 1, p: 2 }}>
-            <Grid container spacing={2} justifyContent='center'>
+          <Box sx={{ flexGrow: 1 }}>
+            <Grid container spacing={1} justifyContent='center'>
               {/* First Card */}
-              <Grid item xs={12} sm={6} md={4}>
+              <Grid item xs={6} sm={4} md={4}>
                 <CustomCard
                   firstContent={
                     <div className="exercise-group">
@@ -172,7 +171,7 @@ export const HomePage = () => {
               </Grid>
 
               {/* Second Card */}
-              <Grid item xs={12} sm={6} md={4}>
+              <Grid item xs={6} sm={4} md={4}>
                 <CustomCard
                   firstContent={
                     <div className="exercise-group">
@@ -200,7 +199,7 @@ export const HomePage = () => {
               </Grid>
 
               {/* Third Card */}
-              <Grid item xs={12} sm={6} md={4}>
+              <Grid item xs={6} sm={4} md={4}>
                 <CustomCard
                   firstContent={
                     <div className="exercise-group">
