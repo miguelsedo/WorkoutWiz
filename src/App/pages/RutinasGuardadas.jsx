@@ -12,7 +12,7 @@ export const RutinasGuardadas = () => {
 
 
   useEffect(() => {
-    fetch(`http://api.workoutwiz.eu/routines/${userId}`)
+    fetch(`https://api.workoutwiz.eu/routines/${userId}`)
       .then(response => response.json())
       .then(data => {
         setRoutines(data);

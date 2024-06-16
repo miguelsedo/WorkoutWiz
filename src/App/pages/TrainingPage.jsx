@@ -12,7 +12,7 @@ export const TrainingPage = () => {
 
     useEffect(() => {
         if (routineId && userId) {
-            fetch(`http://api.workoutwiz.eu/routine-detail/${routineId}/${userId}`)
+            fetch(`https://api.workoutwiz.eu/routine-detail/${routineId}/${userId}`)
                 .then(response => response.json())
                 .then(data => {
                     setRoutineDetails(data);

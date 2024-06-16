@@ -12,7 +12,7 @@ export const UserProvider = ({ children }) => {
     useEffect(() => {
         setIsLoading(true);
         if (uid) {
-            fetch(`http://api.workoutwiz.eu/get-persona/${uid}`)
+            fetch(`https://api.workoutwiz.eu/get-persona/${uid}`)
                 .then(response => response.json())
                 .then(data => {
                     setUserData(data);

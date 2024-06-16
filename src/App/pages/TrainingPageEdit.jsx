@@ -27,14 +27,14 @@ export const TrainingPageEdit = () => {
         `;
         setLoadingExercise(true);
         try {
-            const response = await axios.post('http://api.workoutwiz.eu/interact-with-gpt', { prompt });
+            const response = await axios.post('https://api.workoutwiz.eu/interact-with-gpt', { prompt });
             console.log('Generated exercise response:', response.data.response);
             const parsedResponse = parseGPTResponse(response.data.response);
             console.log('Parsed Exercise:', parsedResponse.ejercicio);
             console.log('Parsed Details:', parsedResponse.details);
             
             // Update ejercicio concreto en la bd
-            await axios.put(`http://api.workoutwiz.eu/update-exercise/${userId}/${exercise.exercise_id}`, {
+            await axios.put(`https://api.workoutwiz.eu/update-exercise/${userId}/${exercise.exercise_id}`, {
                 ejercicio: parsedResponse.ejercicio,
                 details: parsedResponse.details
             });
@@ -70,7 +70,7 @@ export const TrainingPageEdit = () => {
 
     useEffect(() => {
         if (routineId && userId) {
-            fetch(`http://api.workoutwiz.eu/routine-detail/${routineId}/${userId}`)
+            fetch(`https://api.workoutwiz.eu/routine-detail/${routineId}/${userId}`)
                 .then(response => response.json())
                 .then(data => {
                     setRoutineDetails(data);
@@ -86,7 +86,7 @@ export const TrainingPageEdit = () => {
     const handleDeleteRoutine = async () => {
         if (window.confirm('Are you sure you want to delete this training plan?')) {
             try {
-                const response = await fetch(`http://api.workoutwiz.eu/delete-routine/${routineId}/${userId}`, {
+                const response = await fetch(`https://api.workoutwiz.eu/delete-routine/${routineId}/${userId}`, {
                     method: 'DELETE'
                 });
 
