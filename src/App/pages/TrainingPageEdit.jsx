@@ -151,7 +151,7 @@ export const TrainingPageEdit = () => {
                         </Typography>
                     </Grid>
                     <Grid item sx={{ ml: 4 }}>
-                        <IconButton component={RouterLink} to={`/edit-routine/${routineId}`} sx={{ color: 'white' }}>
+                        <IconButton component={RouterLink} to={`/rutina/${routineId}/${userId}/`} sx={{ color: 'white' }}>
                             <Edit />
                         </IconButton>
                     </Grid>
