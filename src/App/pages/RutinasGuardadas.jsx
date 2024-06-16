@@ -43,7 +43,7 @@ export const RutinasGuardadas = () => {
         }}
       >
         <Typography variant="h4" sx={{ color: '#FFF', textAlign: 'center', mb: 4 }}>
-          Tus rutinas guardadas
+          Your training plans
         </Typography>
         <Grid container spacing={3} justifyContent="center">
           {routines.map((routine) => (

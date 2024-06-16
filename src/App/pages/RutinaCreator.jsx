@@ -123,10 +123,10 @@ export const RutinaCreator = () => {
       setLoadinggpt(true);
       const prompt = `The user is ${userData.Edad} years old, the height is ${userData.Altura}, the weight is ${userData.Peso}, has ${experienciaValue} months of experience, is ${actividadValue} out of 100 rate of active in the day, currently trains ${entrenosValue} times per week, if exists, the user has the following limitation, please consider it: ${inputValue || 'None'}, has ${objetivo} as a gym goal and wants to train ${dias} times per week.
       
-    Make a training plan in spanish for the gym divided effectively in the days the user wants to train and display it like this, just this, no other text nor response, just the training like this:
+    Make a training plan in english for the gym divided effectively in the days the user wants to train and display it like this, just this, no other text nor response, just the training like this:
     Dia 1 "Title of the training"
-    - Ejercicio 1: x series de x repeticiones
-    - Ejercicio 2: x series de x repeticiones....
+    - Exercise 1: x series de x reps
+    - Exercise 2: x series de x reps....
     Dia 2 "Title of the training"....
 
     IF the user selects only 1 day, make a fullbody training for one day, easy.
@@ -165,7 +165,7 @@ export const RutinaCreator = () => {
         throw new Error('Sin respuesta');
     }
 
-    const days = response.split(/D[íi]a \d+/).filter(Boolean);
+    const days = response.split(/Day \d+/).filter(Boolean);
 
     return days.map((dayContent, index) => {
 
@@ -175,7 +175,7 @@ export const RutinaCreator = () => {
 
         const dayLines = dayContent.trim().split('\n').filter(Boolean);
         const titleLine = dayLines[0].replace(/"/g, '').trim(); 
-        const title = titleLine.replace(/^Día \d+ /, ''); 
+        const title = titleLine.replace(/^Day \d+ /, ''); 
 
         const exercises = dayLines.slice(1).map((line, lineIndex) => {
             const [exercise, details] = line.split(':');
@@ -185,7 +185,7 @@ export const RutinaCreator = () => {
             return {
                 exercise: exercise.replace('-', '').trim(),
                 details: details.trim(),
-                resumen_dia: `Día ${index + 1} ${title}` 
+                resumen_dia: `Day ${index + 1} ${title}` 
             };
         });
 
@@ -193,8 +193,8 @@ export const RutinaCreator = () => {
         console.log(`Day ${index + 1} Ejercicios:`, exercises);
 
         return {
-            title: `Día ${index + 1} ${title}`,
-            resumen_dia: `Día ${index + 1} ${title}`,
+            title: `Day ${index + 1} ${title}`,
+            resumen_dia: `Day ${index + 1} ${title}`,
             exercises,
             day: index + 1
         };
@@ -256,11 +256,11 @@ export const RutinaCreator = () => {
                 <path className="a3" d="M0 40 L30 72 L60 40"></path>
               </svg>
               <Typography sx={{ mt: -6 }} variant="h1" gutterBottom style={{ color: '#fff' }}>
-                Sobre tí
+                About you
               </Typography>
               <Grid item style={{ width: '50%' }}>
                 <Typography variant="h4" style={{ color: '#fff' }}>
-                  Experiencia en gimnasio
+                  Experience at the gym
                 </Typography>
               </Grid>
               <Grid item container alignItems="center" justifyContent="space-between" style={{ width: '50%' }}>
@@ -268,14 +268,14 @@ export const RutinaCreator = () => {
                   defaultValue={experienciaInicial}
                   minValue={0}
                   maxValue={24}
-                  leftText="0 meses"
-                  rightText=" < 24 meses"
+                  leftText="0 months"
+                  rightText=" < 24 months"
                   onChange={handleExperienciaChange}
                 />
               </Grid>
               <Grid item style={{ width: '50%' }}>
                 <Typography variant="h4" style={{ color: '#fff' }}>
-                  Nivel de actividad
+                  Activity level
                 </Typography>
               </Grid>
               <Grid item container alignItems="center" justifyContent="space-between" style={{ width: '50%' }}>
@@ -283,14 +283,14 @@ export const RutinaCreator = () => {
                   defaultValue={actividadInicial}
                   minValue={0}
                   maxValue={100}
-                  leftText="Tengo vida sedentaria"
-                  rightText="Tengo actividad durante el día"
+                  leftText="I am barely active"
+                  rightText="I am very active"
                   onChange={handleActividadChange}
                 />
               </Grid>
               <Grid item style={{ width: '50%' }}>
                 <Typography variant="h4" style={{ color: '#fff' }}>
-                  Entrenos por semana
+                  Current trainings per week
                 </Typography>
               </Grid>
               <Grid item container alignItems="center" justifyContent="space-between" style={{ width: '50%' }}>
@@ -298,8 +298,8 @@ export const RutinaCreator = () => {
                   defaultValue={entrenosInicial}
                   minValue={0}
                   maxValue={7}
-                  leftText="No entreno aún"
-                  rightText="Entreno 7 días"
+                  leftText="0 days"
+                  rightText="7 days"
                   onChange={handleEntrenosChange}
                 />
               </Grid>
@@ -307,7 +307,7 @@ export const RutinaCreator = () => {
                 <div className="form">
                   <input
                     className="input"
-                    placeholder="¿Tienes alguna limitación?"
+                    placeholder="Do you have any limitation?"
                     type="text"
                     onChange={handleInputChange} // Call handleInputChange on input change
                   />
@@ -328,91 +328,91 @@ export const RutinaCreator = () => {
                 style={{ width: '100%' }}
               >
                 <Typography variant="h1" gutterBottom style={{ color: '#fff' }}>
-                  Sobre tu rutina
+                  About your training plan
                 </Typography>
                 <Grid container direction="row" justifyContent="center">
                   <Grid item xs={3}>
-                    <Typography variant="h5" gutterBottom style={{ color: '#fff' }}>¿Cuál es tu objetivo?</Typography>
+                    <Typography variant="h5" gutterBottom style={{ color: '#fff' }}>What is your goal?</Typography>
                   </Grid>
                   <Grid item xs={3}>
-                    <Typography variant="h5" gutterBottom style={{ color: '#fff' }}>¿Cuantos días/semana quieres entrenar?</Typography>
+                    <Typography variant="h5" gutterBottom style={{ color: '#fff' }}>How many trainings per week?</Typography>
                   </Grid>
                 </Grid>
                 <Grid container direction="row" justifyContent="center" alignContent="center" sx={{ mb: 6 }}>
                   <Grid container sx={{ padding: 2 }} direction="column" width={'50dvh'}>
                     <Button
                       fullWidth
-                      onClick={() => handleObjetivoButtonClick('Perder Grasa', 0)}
+                      onClick={() => handleObjetivoButtonClick('Loose weight', 0)}
                       variant={selectedObjetivoButton === 0 ? "contained" : "outlined"}
                       sx={{ marginBottom: 1 }}
                     >
-                      Perder Grasa
+                      Loose weight
                     </Button>
                     <Button
                       fullWidth
-                      onClick={() => handleObjetivoButtonClick('Ganar músculo', 1)}
+                      onClick={() => handleObjetivoButtonClick('Gain muscle', 1)}
                       variant={selectedObjetivoButton === 1 ? "contained" : "outlined"}
                       sx={{ marginBottom: 1 }}
                     >
-                      Ganar músculo
+                      Gain muscle
                     </Button>
                     <Button
                       fullWidth
-                      onClick={() => handleObjetivoButtonClick('Ganar resistencia', 2)}
+                      onClick={() => handleObjetivoButtonClick('Improve cardio', 2)}
                       variant={selectedObjetivoButton === 2 ? "contained" : "outlined"}
                       sx={{ marginBottom: 1 }}
-                    >Ganar resistencia
+                    >Improve cardio
                     </Button>
                     <Button
                       fullWidth
-                      onClick={() => handleObjetivoButtonClick('Aumentar fuerza', 3)}
+                      onClick={() => handleObjetivoButtonClick('Gain strength', 3)}
                       variant={selectedObjetivoButton === 3 ? "contained" : "outlined"}
                       sx={{ marginBottom: 1 }}
-                    >Aumentar fuerza
+                    >Gain strength
                     </Button>
                     <Button
                       fullWidth
                       onClick={() => handleObjetivoButtonClick('Mejorar explosividad', 4)}
                       variant={selectedObjetivoButton === 4 ? "contained" : "outlined"}
                       sx={{ marginBottom: 1 }}
-                    >Mejorar explosividad
+                    >Improve explosiveness
                     </Button>
                   </Grid>
                   <Grid container sx={{ padding: 2 }} direction="column" width={'50dvh'}>
                     <Button
                       fullWidth
-                      onClick={() => handleDiasButtonClick('1 día', 0)}
+                      onClick={() => handleDiasButtonClick('1 day', 0)}
                       variant={selectedDiasButton === 0 ? "contained" : "outlined"}
                       sx={{ marginBottom: 1 }}
-                    >1 día
+                      >1 day
                     </Button>
                     <Button
                       fullWidth
-                      onClick={() => handleDiasButtonClick('2 días', 1)}
+                      onClick={() => handleDiasButtonClick('2 days', 1)}
                       variant={selectedDiasButton === 1 ? "contained" : "outlined"}
                       sx={{ marginBottom: 1 }}
-                    >2 días
+                    >2 days
                     </Button>
                     <Button
                       fullWidth
-                      onClick={() => handleDiasButtonClick('3 días', 2)}
+                      onClick={() => handleDiasButtonClick('3 days', 2)}
                       variant={selectedDiasButton === 2 ? "contained" : "outlined"}
                       sx={{ marginBottom: 1 }}
-                    >3 días
+                    >3 days
                     </Button>
                     <Button
                       fullWidth
-                      onClick={() => handleDiasButtonClick('4 días', 3)}
+                      onClick={() => handleDiasButtonClick('4 days', 3)}
                       variant={selectedDiasButton === 3 ? "contained" : "outlined"}
                       sx={{ marginBottom: 1 }}
-                    >4 días
+                    >4 days
                     </Button>
                     <Button
                       fullWidth
-                      onClick={() => handleDiasButtonClick('5 días', 5)}
+                      onClick={() => handleDiasButtonClick('5 days', 5)}
                       variant={selectedDiasButton === 5 ? "contained" : "outlined"}
                       sx={{ marginBottom: 1 }}
-                    >5 días
+                    >5 days
                     </Button>
                   </Grid>
                 </Grid>
@@ -420,7 +420,7 @@ export const RutinaCreator = () => {
                   <svg height="24" width="24" fill="#FFFFFF" viewBox="0 0 24 24" data-name="Layer 1" id="Layer_1" className="sparkle">
                     <path d="M10,21.236,6.755,14.745.264,11.5,6.755,8.255,10,1.764l3.245,6.491L19.736,11.5l-6.491,3.245ZM18,21l1.5,3L21,21l3-1.5L21,18l-1.5-3L18,18l-3,1.5ZM19.333,4.667,20.5,7l1.167-2.333L24,3.5,21.667,2.333,20.5,0,19.333,2.333,17,3.5Z"></path>
                   </svg>
-                  <span className="text">Generar entrenamiento</span>
+                  <span className="text">Generate training plan</span>
                 </button>
               </Grid>
             </Grid>

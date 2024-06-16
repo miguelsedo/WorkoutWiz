@@ -76,7 +76,7 @@ const PerfilButton = () => {
             },
           }}
           >
-          Información personal
+          Personal data
         </MenuItem>
         <MenuItem
           onClick={onLogout}

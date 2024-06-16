@@ -14,9 +14,9 @@ const formData = {
 }
 
 const formValidations = {
-  email: [ (value) => value.includes('@'), 'El correo debe de tener una @'],
-  password: [ (value) => value.length >= 6, 'El password debe de tener más de 6 letras.'],
-  displayName: [ (value) => value.length >= 1, 'El nombre es obligatorio.'],
+  email: [ (value) => value.includes('@'), 'Email must containg an "@"'],
+  password: [ (value) => value.length >= 6, 'Password must be over 6 characters.'],
+  displayName: [ (value) => value.length >= 1, 'Enter your name.'],
 }
 
 export const RegisterPage = () => {
@@ -37,7 +37,6 @@ export const RegisterPage = () => {
     setFormSubmitted(true);
 
     if ( !isFormValid ) return;
-
     dispatch( startCreatingUserWithEmailPassword(formState) );
   }
 
@@ -49,9 +48,9 @@ export const RegisterPage = () => {
            
             <Grid item xs={ 12 } sx={{ mt: 2 }}>
               <TextField 
-                label="Nombre completo" 
+                label="Name" 
                 type="text" 
-                placeholder='Nombre completo' 
+                placeholder='Peter Parker' 
                 fullWidth
                 name="displayName"
                 value={ displayName }
@@ -66,9 +65,9 @@ export const RegisterPage = () => {
 
             <Grid item xs={ 12 } sx={{ mt: 2 }}>
               <TextField 
-                label="Correo" 
+                label="Email" 
                 type="email" 
-                placeholder='correo@google.com' 
+                placeholder='email@google.com' 
                 fullWidth
                 name="email"
                 value={ email }
@@ -83,9 +82,9 @@ export const RegisterPage = () => {
 
             <Grid item xs={ 12 } sx={{ mt: 2 }}>
               <TextField 
-                label="Contraseña" 
+                label="Password" 
                 type="password" 
-                placeholder='Contraseña' 
+                placeholder='password' 
                 fullWidth
                 name="password"
                 value={ password }
@@ -114,7 +113,7 @@ export const RegisterPage = () => {
                   type="submit"
                   variant='contained' 
                   fullWidth>
-                  Crear cuenta
+                  Create account
                 </Button>
               </Grid>
             </Grid>
@@ -123,7 +122,7 @@ export const RegisterPage = () => {
             <Grid container direction='row' justifyContent='end'>
               <Typography sx={{ mr: 1 }}>¿Ya tienes cuenta?</Typography>
               <Link component={ RouterLink } color='inherit' to="/auth/login">
-                ingresar
+                Login
               </Link>
             </Grid>
 

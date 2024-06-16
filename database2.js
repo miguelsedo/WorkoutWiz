@@ -22,6 +22,8 @@ const db = mysql.createConnection({
     user: 'root',
     password: 'password',
     database: 'wwdb1'
+    // password: 'caching_sha2_password',
+    // database: 'wwdb1'  // replace with your database name
 });
 
 db.connect(err => {
@@ -98,7 +100,7 @@ app.post('/add-data', (req, res) => {
             console.error('Error ejecutando query:', err);
             return res.status(500).send('Error al añadir datos');
         }
-        res.status(200).send('Datos añadidos correctamente');
+        res.status(200).send("datos añadidos correctamente");
     });
 });
 
@@ -245,7 +247,7 @@ app.post('/save-training-plan', (req, res) => {
 
     // Calcula el día máximo del plan (para mostrar en la CustomCard) "Entreno de x días"
     const maxDias = Math.max(...trainingPlan.map(day => day.day));
-    const modifiedGoal = `${goal} - ${maxDias} días`;
+    const modifiedGoal = `${goal} - ${maxDias} days`;
 
     // Ver si existge un training plan con el mismo objetivo y días para el usuario, y en ese caso lo sobreescribe
     const checkExistQuery = `SELECT ID FROM training_plan WHERE persona_id = ? AND titulo = ? LIMIT 1`;

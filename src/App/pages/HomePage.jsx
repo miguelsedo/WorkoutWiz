@@ -20,7 +20,7 @@ export const HomePage = () => {
         <section className="animate__animated animate__fadeIn">
           <ContentGrid width='100%'>
 
-              <Typography  variant='h2' style={{ color: '#be82ff' }}sx={{ mb: -2 }}>Bienvenido a</Typography>
+              <Typography  variant='h2' style={{ color: '#be82ff' }}sx={{ mb: -2 }}>Welcome to</Typography>
               <Typography variant='h1' sx={{ mb: 4 }}>
               <span style={{
                 background: `radial-gradient(circle, #be82ff -200%, #ffffff)`,
@@ -44,7 +44,7 @@ export const HomePage = () => {
         <section>
           <ContentGrid width='100%'>
             <IASphere/>
-            <Typography variant='h3' style={{color:'#be82ff'}} sx={{ mt:3,mb: -1}}>Tu entrenador personal basado en {' '}
+            <Typography variant='h3' style={{color:'#be82ff'}} sx={{ mt:3,mb: -1}}>Your personal trainer powered by {' '}
               <span
               style={{
                 background: `radial-gradient(circle, #42C9FF  30%, #FF00D4)`,
@@ -52,9 +52,9 @@ export const HomePage = () => {
                 'WebkitTextFillColor': 'transparent',
                 fontWeight: 'bold',
                 textShadow: '0px 0px 10px #be82ff'
-              }}>IA</span></Typography>
+              }}>AI</span></Typography>
             <div style={{ position: 'relative', bottom: '-33vh'}}>
-              <Typography variant='body2' style={{ color: 'leve' }}>¿Cómo funciona?</Typography>
+              <Typography variant='body2' style={{ color: 'leve' }}>How does it work?</Typography>
             </div>
             <svg className="arrows">
               <path className="a1" d="M0 0 L30 32 L60 0"></path>
@@ -93,12 +93,12 @@ export const HomePage = () => {
                 <path className="a3" d="M0 40 L30 72 L60 40"></path>
             </svg>
             <Typography variant="h2" gutterBottom style={{ color: '#fff' }} sx={{mt:-10}}>
-              Introduce tu información
+              First enter your data
             </Typography>
 
             <Grid item style={{ width: '40%' }}>
               <Typography variant="h5" style={{ color: '#fff' }}>
-                Experiencia en gimnasio
+                Experience at the gym
               </Typography>
             </Grid>
             <Grid item container alignItems="center" justifyContent="space-between" style={{ width: '40%'}}> 
@@ -106,13 +106,13 @@ export const HomePage = () => {
                 defaultValue={4}
                 minValue={0}
                 maxValue={24}
-                leftText="0 meses"
-                rightText=" < 24 meses"
+                leftText="0 months"
+                rightText=" < 24 months"
               />
             </Grid>
             <Grid item style={{ width: '40%' }}>
               <Typography variant="h5" style={{ color: '#fff' }}>
-                Nivel de actividad
+                Activity level
               </Typography>
             </Grid>
             <Grid item container alignItems="center" justifyContent="space-between" style={{ width: '40%'}}>
@@ -121,13 +121,13 @@ export const HomePage = () => {
                 defaultValue={4}
                 minValue={0}
                 maxValue={100}
-                leftText="Tengo vida sedentaria"
-                rightText="Tengo actividad durante el día"
+                leftText="I am barely active"
+                rightText="I am very active"
               />
             </Grid>
             <Grid item style={{ width: '40%' }}>
               <Typography variant="h5" style={{ color: '#fff' }}>
-                Entrenos por semana
+                Current trainings per week
               </Typography>
             </Grid>
             <Grid item container alignItems="center" justifyContent="space-between" style={{ width: '40%'}}>
@@ -135,15 +135,15 @@ export const HomePage = () => {
                 defaultValue={4}
                 minValue={0}
                 maxValue={7}
-                leftText="0 días"
-                rightText="7 días"
+                leftText="0 days"
+                rightText="7 days"
               />
             </Grid>
           </Grid>
 
               <ContentGrid width='40%' marginTop={-5}>
-                  <Typography variant='h4' gutterBottom style={{color:'#be82ff'}} >Selecciona tu objetivo</Typography>
-                  <GoalSelector options={['Perder grasa', 'Ganar músculo', 'Ganar resistencia']} />
+                  <Typography variant='h4' gutterBottom style={{color:'#be82ff'}} >Then select a goal</Typography>
+                  <GoalSelector options={['Loose weight', 'Gain muscle', 'Improve cardio']} />
               </ContentGrid>
               {/* <KeyboardDoubleArrowDown className="spinner2" style={{ color: '#99ffff', fontSize: '1.6em' }}/> */}
 
@@ -162,7 +162,7 @@ export const HomePage = () => {
               'WebkitTextFillColor': 'transparent',
               fontWeight: 'bold',
               textShadow: '0px 0px 4px #be82ff'
-            }}>¡Recibe una rutina como esta!</Typography>
+            }}>Get a training plan like this!</Typography>
         <Box sx={{ flexGrow: 1, p: 3, }}>
           <Grid container spacing={3} justifyContent='center'>
             {/* First Card */}
@@ -172,22 +172,22 @@ export const HomePage = () => {
                 firstContent={              
                 <div className="exercise-group">
                 <h1>🏋️</h1>
-                <h3>Pecho + tríceps</h3>
+                <h3>Chest + triceps</h3>
                 </div>
                 }
                 secondContent={
                 <div className="workout-plan">
                   <div className="exercise-group">
-                    <h3>Pecho</h3>
-                    <p>Press de banca: 3 x 10</p>
-                    <p>Fondos en paralelas: 3 x 12</p>
-                    <p>Aperturas con mancuernas: 3 x 12</p>
+                    <h3>Chest</h3>
+                    <p>Benchpress: 3 x 10</p>
+                    <p>Parallel bar dips: 3 x 12</p>
+                    <p>Dumbell flies: 3 x 12</p>
                   </div>
                   <div className="exercise-group">
-                    <h3>Tríceps</h3>
-                    <p>Extensión en polea: 3 x 10</p>
-                    <p>Fondos en banco: 3 x 12</p>
-                    <p>Patada de tríceps: 3 x 12</p>
+                    <h3>Triceps</h3>
+                    <p>Cable extension: 3 x 10</p>
+                    <p>Bench dips: 3 x 12</p>
+                    <p>Tricep kickbacs: 3 x 12</p>
                   </div>
                 </div>
               }/>
@@ -200,22 +200,22 @@ export const HomePage = () => {
                 firstContent={
                 <div className="exercise-group">
                   <h1>💪</h1>
-                  <h3>Espalda + bíceps</h3>
+                  <h3>Back + biceps</h3>
                 </div>
                 }
                 secondContent={
                 <div className="workout-plan">
                   <div className="exercise-group">
-                    <h3>Espalda</h3>
-                    <p>Remo con barra: 3 x 10</p>
-                    <p>Dominadas: 3 x 8</p>
-                    <p>Peso muerto: 3 x 8</p>
+                    <h3>Back</h3>
+                    <p>Barbell Row: 3 x 10</p>
+                    <p>Pull-ups: 3 x 8</p>
+                    <p>Deadlift: 3 x 8</p>
                   </div>
                   <div className="exercise-group">
-                    <h3>Bíceps</h3>
-                    <p>Curl de bíceps con barra: 3 x 10</p>
-                    <p>Curl martillo: 3 x 12</p>
-                    <p>Curl concentrado: 3 x 10</p>
+                    <h3>Biceps</h3>
+                    <p>Barbell Bicep Curl: 3 x 10</p>
+                    <p>Hammer Curl: 3 x 12</p>
+                    <p>Concentration Curl: 3 x 10</p>
                   </div>
                 </div>
                 }
@@ -225,32 +225,31 @@ export const HomePage = () => {
             {/* Third Card */}
             <Grid item>
 
-              <CustomCard
-                firstContent={
+            <CustomCard
+              firstContent={
                 <div className="exercise-group">
                   <h1>🦵</h1>
-                  <h3>Pierna + hombro</h3>
+                  <h3>Leg + Shoulder</h3>
                 </div>
-                }
-                secondContent={
+              }
+              secondContent={
                 <div className="workout-plan">
                   <div className="exercise-group">
-                    <h3>Pierna</h3>
-                    <p>Sentadillas: 4 x 10</p>
-                    <p>Prensa de piernas: 3 x 12</p>
-                    <p>Extensiones de piernas: 3 x 15</p>
+                    <h3>Leg</h3>
+                    <p>Squats: 4 x 10</p>
+                    <p>Leg Press: 3 x 12</p>
+                    <p>Leg Extensions: 3 x 15</p>
                   </div>
                   <div className="exercise-group">
-                    <h3>Hombro</h3>
-                    <p>Press militar: 4 x 8</p>
-                    <p>Elevaciones laterales: 3 x 12</p>
-                    <p>Encogimientos de hombros: 3 x 15</p>
+                    <h3>Shoulder</h3>
+                    <p>Military Press: 4 x 8</p>
+                    <p>Lateral Raises: 3 x 12</p>
+                    <p>Shoulder Shrugs: 3 x 15</p>
                   </div>
                 </div>
+              }
+            />
 
-
-                }
-              />
 
             </Grid>
           </Grid>
@@ -262,7 +261,7 @@ export const HomePage = () => {
                 <span className="circle" aria-hidden="true">
                 <span className="icon arrow"></span>
                 </span>
-                <span className="button-text">Crea la tuya ahora</span>
+                <span className="button-text">Get yours now</span>
               </button>
 
             </Link>

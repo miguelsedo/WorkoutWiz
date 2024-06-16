@@ -44,7 +44,7 @@ export const AppLayout = ({ children }) => {
               open={openSnackbar}
               autoHideDuration={3000}
               onClose={handleCloseSnackbar}
-              message="Completa la información de usuario para continuar"
+              message="Complete the user information to continue"
               anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
               sx={{
                 '.MuiSnackbarContent-root': {

@@ -28,8 +28,8 @@ export const NavBar = ({ drawerWidth = 240 }) => {
               />
             </RouterLink>
             <Grid container direction='row' justifyContent='flex-start' alignItems='center'>
-              <ButtonNavbar to="/routine-creator" text="CREA TU RUTINA" />
-              <ButtonNavbar to="/rutinas-guardadas" text="RUTINAS GUARDADAS" />
+              <ButtonNavbar to="/routine-creator" text="DESIGN YOUR WORKOUT" />
+              <ButtonNavbar to="/rutinas-guardadas" text="SAVED" />
             </Grid>
           </Grid>
 

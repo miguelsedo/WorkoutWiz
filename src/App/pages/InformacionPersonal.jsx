@@ -56,7 +56,7 @@ export const InformacionPersonal = () => {
       setTimeout(() => {
         setOpenSnackbar(false);
         navigate('/');
-      }, 3000);
+      }, 1500);
     } catch (error) {
       console.error('Failed to update data:', error);
     }
@@ -68,11 +68,11 @@ export const InformacionPersonal = () => {
         <Grid item xs={12} sm={6} md={4} lg={3}>
           <Grid container direction="column" spacing={2}>
             <Grid item>
-              <Typography variant="h3">Información personal</Typography>
+              <Typography variant="h3">Personal data</Typography>
             </Grid>
             <Grid item>
               <TextField
-                label="Nombre"
+                label="Name"
                 variant="outlined"
                 fullWidth
                 name="Nombre"
@@ -82,7 +82,7 @@ export const InformacionPersonal = () => {
             </Grid>
             <Grid item>
               <TextField
-                label="Apellidos"
+                label="Surname"
                 variant="outlined"
                 fullWidth
                 name="Apellidos"
@@ -92,7 +92,7 @@ export const InformacionPersonal = () => {
             </Grid>
             <Grid item>
               <TextField
-                label="Edad"
+                label="Age"
                 variant="outlined"
                 fullWidth
                 name="Edad"
@@ -102,7 +102,7 @@ export const InformacionPersonal = () => {
             </Grid>
             <Grid item>
               <TextField
-                label="Altura"
+                label="Height"
                 variant="outlined"
                 fullWidth
                 name="Altura"
@@ -112,7 +112,7 @@ export const InformacionPersonal = () => {
             </Grid>
             <Grid item>
               <TextField
-                label="Peso"
+                label="Weight"
                 variant="outlined"
                 fullWidth
                 name="Peso"
@@ -130,8 +130,8 @@ export const InformacionPersonal = () => {
                     ...formData
                   }
                 }}
-                onSuccess={handleSave} //onSuccess, handleSave
-                content="Guardar"
+                onError={handleSave} //onSuccess, handleSave
+                content="Save"
               />
             </Grid>
           </Grid>
@@ -139,7 +139,7 @@ export const InformacionPersonal = () => {
       </Grid>
       <Snackbar
         open={openSnackbar}
-        message="Datos guardados correctamente"
+        message="Your data has been saved successfully"
         autoHideDuration={1000}
         anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
         onClose={() => setOpenSnackbar(false)}
