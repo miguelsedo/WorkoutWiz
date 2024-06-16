@@ -20,15 +20,16 @@ ValueLabelComponent.propTypes = {
   children: PropTypes.element.isRequired,
   value: PropTypes.number.isRequired,
 };
+
 const PrettoSlider = styled(Slider)({
-  color: '#52af77',
-  height: 8,
+  color: '#9000CC',
+  height: 6,
   '& .MuiSlider-track': {
     border: 'none',
   },
   '& .MuiSlider-thumb': {
-    height: 24,
-    width: 24,
+    height: 20,
+    width: 20,
     backgroundColor: '#fff',
     border: '2px solid currentColor',
     '&:focus, &:hover, &.Mui-active, &.Mui-focusVisible': {
@@ -40,13 +41,13 @@ const PrettoSlider = styled(Slider)({
   },
   '& .MuiSlider-valueLabel': {
     lineHeight: 1.2,
-    fontSize: 12,
+    fontSize: 10,
     background: 'unset',
     padding: 0,
-    width: 32,
-    height: 32,
+    width: 28,
+    height: 28,
     borderRadius: '50% 50% 50% 0',
-    backgroundColor: '#52af77',
+    backgroundColor: '#9000CC',
     transformOrigin: 'bottom left',
     transform: 'translate(50%, -100%) rotate(-45deg) scale(0)',
     '&::before': { display: 'none' },
@@ -70,8 +71,8 @@ export default function CustomizedSlider({ defaultValue, minValue, maxValue, lef
   };
 
   return (
-    <Box sx={{ width: '100vh' }}>
-      <Slider
+    <Box sx={{ width: '90vw', maxWidth: '90%', padding: '0 10px' }}>
+      <PrettoSlider
         valueLabelDisplay="auto"
         aria-label="pretto slider"
         value={sliderValue}
@@ -80,10 +81,10 @@ export default function CustomizedSlider({ defaultValue, minValue, maxValue, lef
         onChange={handleChange}
       />
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-        <Typography variant="body1" align="left">{leftText}</Typography>
-        <Typography variant="body1" align="right">{rightText}</Typography>
+        <Typography variant="body2" align="left">{leftText}</Typography>
+        <Typography variant="body2" align="right">{rightText}</Typography>
       </Box>
-      <Box sx={{ m: 3 }} />
+      <Box sx={{ m: 2 }} />
     </Box>
   );
 }

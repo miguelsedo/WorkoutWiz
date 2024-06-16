@@ -18,4 +18,3 @@ const CustomCard = ({ firstContent, secondContent, thirdContent }) => {
   };
   
 export default CustomCard;
-

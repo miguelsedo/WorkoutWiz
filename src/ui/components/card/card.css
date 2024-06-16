@@ -29,7 +29,6 @@
   font-size: 25px;
   z-index: 1;
   position: absolute;
-  
 }
 
 .card:hover .first-content {
@@ -49,7 +48,6 @@
   transition: opacity 0.3s;
   font-size: 15px;
   z-index: 0;
-
 }
 
 .card:hover .second-content {
@@ -86,6 +84,7 @@ p {
   font-weight: 300;
   margin: 0; /* Eliminate default margins */
 }
+
 .add-card {
   display: flex;
   align-items: center;
@@ -104,4 +103,33 @@ p {
 .add-card:hover {
   background-color: rgba(87, 87, 87, 0.212);
   transform: scale(1.01);
+}
+
+/* Media query for smaller screens */
+@media (max-width: 600px) {
+  .card, .add-card {
+    width: 180px;
+    height: 240px;
+    font-size: 20px; /* Reduced base font size */
+  }
+
+  .first-content {
+    font-size: 18px; /* Kept the title slightly larger */
+  }
+
+  .second-content {
+    font-size: 12px; /* Reduced content font size */
+  }
+
+  h3 {
+    font-size: 1.1em; /* Slightly reduced */
+  }
+
+  p, .custom-text {
+    font-size: 12px; /* Reduced further for smaller screens */
+  }
+
+  .add-card {
+    font-size: 2rem;
+  }
 }

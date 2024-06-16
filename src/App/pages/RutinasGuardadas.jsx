@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Box, CircularProgress, Grid, Link, Typography } from '@mui/material';
+import { Box, CircularProgress, Grid, Link, Typography, useMediaQuery } from '@mui/material';
 import { AppLayout } from '../layout/AppLayout';
 import CustomCard from '../../ui/components/card/card';
 import { Link as RouterLink } from 'react-router-dom';
@@ -8,23 +8,20 @@ import { useSelector } from 'react-redux';
 export const RutinasGuardadas = () => {
   const [routines, setRoutines] = useState([]);
   const userId = useSelector(state => state.auth.uid);
-  const [loading, setLoading] = useState(true); // Added for loading state
-
+  const [loading, setLoading] = useState(true);
+  const isSmallScreen = useMediaQuery('(max-width: 600px)');
 
   useEffect(() => {
     fetch(`https://api.workoutwiz.eu/routines/${userId}`)
       .then(response => response.json())
       .then(data => {
         setRoutines(data);
-        setLoading(false)
+        setLoading(false);
       })
       .catch(error => console.error("Error fetching routines:", error));
-      setLoading(false)
-  }, []);
+      setLoading(false);
+  }, [userId]);
 
-
-
-  // Function to handle clicking on a routine
   const handleRoutineClick = (id) => {
     console.log("Clicked Routine ID:", id);
   };
@@ -42,17 +39,25 @@ export const RutinasGuardadas = () => {
           gap: 1,
         }}
       >
-        <Typography variant="h4" sx={{ color: '#FFF', textAlign: 'center', mb: 4 }}>
+        <Typography 
+          variant={isSmallScreen ? "h5" : "h4"} 
+          sx={{ color: '#FFF', textAlign: 'center', mb: 4 }}
+        >
           Your training plans
         </Typography>
-        <Grid container spacing={3} justifyContent="center">
+        <Grid container spacing={isSmallScreen ? 2 : 3} justifyContent="center">
           {routines.map((routine) => (
-            <Grid item key={routine.id} >
-              <Link component={RouterLink} to={`/rutina/${routine.id}/${userId}`} style={{ textDecoration: 'none' }} onClick={() => handleRoutineClick(routine.id)}>
+            <Grid item key={routine.id}>
+              <Link 
+                component={RouterLink} 
+                to={`/rutina/${routine.id}/${userId}`} 
+                style={{ textDecoration: 'none' }} 
+                onClick={() => handleRoutineClick(routine.id)}
+              >
                 <CustomCard
                   firstContent={
                     <Typography
-                      variant="h4"
+                      variant={isSmallScreen ? "h5" : "h4"}
                       style={{
                         color: 'white',
                         textAlign: 'center',
@@ -66,7 +71,11 @@ export const RutinasGuardadas = () => {
                   secondContent={
                     <div>
                       {routine.days.map((day, index) => (
-                        <Typography key={index}>
+                        <Typography 
+                          key={index}
+                          variant={isSmallScreen ? "body2" : "body1"}
+                          style={{ color: 'white', textAlign: 'center' }}
+                        >
                           {day.resumen_dia}
                         </Typography>
                       ))}
@@ -77,7 +86,12 @@ export const RutinasGuardadas = () => {
             </Grid>
           ))}
           <Grid item>
-            <Link component={RouterLink} to='/routine-creator' className="typography-link" sx={{ textDecoration: 'none' }}>
+            <Link 
+              component={RouterLink} 
+              to='/routine-creator' 
+              className="typography-link" 
+              sx={{ textDecoration: 'none' }}
+            >
               <div className="add-card">+</div>
             </Link>
           </Grid>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Typography, Paper, IconButton, CircularProgress, Grid } from "@mui/material";
+import { Box, Typography, Paper, IconButton, CircularProgress, Grid, useMediaQuery } from "@mui/material";
 import { ArrowBackIos, Delete, Edit } from '@mui/icons-material';
 import RefreshIcon from '@mui/icons-material/Refresh';
 import axios from 'axios';
@@ -13,6 +13,7 @@ export const TrainingPageEdit = () => {
     const [loading, setLoading] = useState(true);
     const [loadingExercise, setLoadingExercise] = useState(false); // Loading state for exercise
     const navigate = useNavigate();
+    const isSmallScreen = useMediaQuery('(max-width: 600px)');
 
     const handleChangeExercise = async (exercise) => {
         console.log("Exercise ID:", exercise.exercise_id);
@@ -143,10 +144,10 @@ export const TrainingPageEdit = () => {
                     top: 16, 
                     width: '70%', 
                     textAlign: 'center',
-                    mb:4
+                    mb: 4
                 }}>
                     <Grid item>
-                        <Typography variant="h4" sx={{ color: 'white' }}>
+                        <Typography variant={isSmallScreen ? "h5" : "h4"} sx={{ color: 'white' }}>
                             {routineDetails.titulo}
                         </Typography>
                     </Grid>
@@ -166,27 +167,30 @@ export const TrainingPageEdit = () => {
                     sx={{
                         mt: 2,
                         mb: 2,
-                        p: 4,
+                        p: isSmallScreen ? 2 : 4,
                         backgroundColor: 'rgba(0, 0, 0, 0.4)',
                         color: 'white',
                         width: '100%',
-                        maxWidth: '600px',
+                        maxWidth: isSmallScreen ? '100%' : '600px',
                         borderRadius: '12px',
                         boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
                         background: 'linear-gradient(145deg, rgba(23, 23, 23, 0.8), rgba(35, 35, 35, 0.2))'
                     }}
                 >
-                    <Typography variant="h6" gutterBottom>
+                    <Typography variant={isSmallScreen ? "subtitle1" : "h6"} gutterBottom>
                         {day.activities[0]?.resumen_dia}
                     </Typography>
                     <Grid container>
                         {day.activities.map((activity, idx) => (
                             <Grid item xs={12} key={idx} className="exercise-entry" sx={{
                                 marginBottom: 1,
+                                display: 'flex',
+                                justifyContent: 'space-between',
+                                alignItems: 'center'
                             }} 
                             onClick={() => handleChangeExercise(activity)}>
 
-                                <Typography>
+                                <Typography variant={isSmallScreen ? "body2" : "body1"}>
                                     {activity.ejercicio}: {activity.details}
                                 </Typography>
                                 <IconButton className="editIcon">
