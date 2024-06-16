@@ -125,7 +125,7 @@ export const HomePage = () => {
 
           <ContentGrid width='100%' maxWidth={isSmallScreen ? '300px' : '600px'}>
             <Typography variant='h5' gutterBottom style={{ color: '#be82ff' }}>Then select a goal</Typography>
-            <GoalSelector options={['Loose weight', 'Gain muscle', 'Improve cardio']} />
+            <GoalSelector options={['Lose weight', 'Gain muscle', 'Improve cardio']} />
           </ContentGrid>
         </Grid>
       </section>

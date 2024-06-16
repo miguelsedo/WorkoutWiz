@@ -13,7 +13,7 @@ export const RutinaCreator = () => {
   const [loadinggpt, setLoadinggpt] = useState(false);
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState('');
-  
+
   const { experiencia, actividad, onInputChange } = useForm({
     experiencia: '1',
     actividad: '30',
@@ -46,31 +46,31 @@ export const RutinaCreator = () => {
     setDias(content);
     setSelectedDiasButton(index);
   };
-  
+
   const handleExperienciaChange = (value) => {
     setExperienciaValue(value);
   };
-  
+
   const handleActividadChange = (value) => {
     setActividadValue(value);
   };
-  
+
   const handleEntrenosChange = (value) => {
     setEntrenosValue(value);
   };
-  
+
   const handleInputChange = (event) => {
     setInputValue(event.target.value || null);
   };
-  
+
   const handleSuccess = (response) => {
     console.log('Success:', response);
   };
-  
+
   const handleError = (error) => {
     console.error('Error:', error);
   };
-  
+
   const [errorMessage, setErrorMessage] = useState('');
 
   const handleClick = async () => {
@@ -184,162 +184,159 @@ export const RutinaCreator = () => {
   };
 
   return (
-<AppLayout>
-  {loadinggpt ? (
-    <GPTLoader />
-  ) : (
-    <Grid
-      className="animate__animated animate__fadeIn"
-      container
-      spacing={2}
-      direction="column"
-      alignItems="center"
-      justifyContent="center"
-      style={{ width: '100%', padding: '0 10px' }}
-    >
-      <Grid item xs={12} style={{ width: '100%' }}>
-        <section>
-          <Grid
-            container
-            direction="column"
-            alignItems="center"
-            justifyContent="center"
-            style={{ width: '100%' }}
-          >
-            <svg className="arrows3">
-              <path className="a1" d="M0 0 L30 32 L60 0"></path>
-              <path className="a2" d="M0 20 L30 52 L60 20"></path>
-              <path className="a3" d="M0 40 L30 72 L60 40"></path>
-            </svg>
-            <Typography sx={{ mt: -4 }} variant="h5" gutterBottom style={{ color: '#fff' }}>
-              About you
-            </Typography>
-            <Grid item xs={12}>
-              <Typography variant="body1" style={{ color: '#fff' }}>
-                Experience at the gym
-              </Typography>
-              <CustomizedSlider
-                defaultValue={experienciaInicial}
-                minValue={0}
-                maxValue={24}
-                leftText="0 months"
-                rightText="< 24 months"
-                onChange={handleExperienciaChange}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <Typography variant="body1" style={{ color: '#fff' }}>
-                Activity level
-              </Typography>
-              <CustomizedSlider
-                defaultValue={actividadInicial}
-                minValue={0}
-                maxValue={100}
-                leftText="I am barely active"
-                rightText="I am very active"
-                onChange={handleActividadChange}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <Typography variant="body1" style={{ color: '#fff' }}>
-                Current trainings per week
-              </Typography>
-              <CustomizedSlider
-                defaultValue={entrenosInicial}
-                minValue={0}
-                maxValue={7}
-                leftText="0 days"
-                rightText="7 days"
-                onChange={handleEntrenosChange}
-              />
-            </Grid>
-            <Grid item xs={12} sx={{ mt: 2 }}>
-              <div className="form">
-                <input
-                  className="input"
-                  placeholder="Do you have any limitation?"
-                  type="text"
-                  onChange={handleInputChange}
-                />
-                <span className="input-border"></span>
-              </div>
-            </Grid>
-          </Grid>
-        </section>
-
-        <section>
-          <Grid
-            container
-            direction="column"
-            alignItems="center"
-            justifyContent="center"
-            style={{ width: '100%' }}
-          >
-            <Typography variant="h5" gutterBottom style={{ color: '#fff' }}>
-              About your training plan
-            </Typography>
-            <Grid container direction="row" justifyContent="center">
-              <Grid item xs={12}>
-                <Typography variant="body1" gutterBottom style={{ color: '#fff' }}>
-                  What is your goal?
+    <AppLayout>
+      {loadinggpt ? (
+        <GPTLoader />
+      ) : (
+        <Grid
+          className="animate__animated animate__fadeIn"
+          container
+          direction="column"
+          alignItems="center"
+          justifyContent="center"
+          sx={{ width: '100%' }}
+        >
+          <Grid item xs={12} md={6}>
+            <section>
+              <Grid
+                container
+                direction="column"
+                alignItems="center"
+                justifyContent="center"
+                sx={{ width: '100%' }}
+              >
+                <svg className="arrows3">
+                  <path className="a1" d="M0 0 L30 32 L60 0"></path>
+                  <path className="a2" d="M0 20 L30 52 L60 20"></path>
+                  <path className="a3" d="M0 40 L30 72 L60 40"></path>
+                </svg>
+                <Typography sx={{ mt: -4 }} variant="h5" gutterBottom style={{ color: '#fff' }}>
+                  About you
                 </Typography>
+                <Grid item xs={12}>
+                  <Typography variant="body1" style={{ color: '#fff' }}>
+                    Experience at the gym
+                  </Typography>
+                  <CustomizedSlider
+                    defaultValue={experienciaInicial}
+                    minValue={0}
+                    maxValue={24}
+                    leftText="0 months"
+                    rightText="< 24 months"
+                    onChange={handleExperienciaChange}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <Typography variant="body1" style={{ color: '#fff' }}>
+                    How active are you
+                  </Typography>
+                  <CustomizedSlider
+                    defaultValue={actividadInicial}
+                    minValue={0}
+                    maxValue={100}
+                    leftText="Barely active"
+                    rightText="Very active"
+                    onChange={handleActividadChange}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <Typography variant="body1" style={{ color: '#fff' }}>
+                    Current trainings per week
+                  </Typography>
+                  <CustomizedSlider
+                    defaultValue={entrenosInicial}
+                    minValue={0}
+                    maxValue={7}
+                    leftText="0 days"
+                    rightText="7 days"
+                    onChange={handleEntrenosChange}
+                  />
+                </Grid>
+                <Grid item xs={12} sx={{ mt: 2 }}>
+                  <div className="form">
+                    <input
+                      className="input"
+                      placeholder="Do you have any limitation?"
+                      type="text"
+                      onChange={handleInputChange}
+                    />
+                    <span className="input-border"></span>
+                  </div>
+                </Grid>
               </Grid>
-              <Grid item xs={12}>
-                <Typography variant="body1" gutterBottom style={{ color: '#fff' }}>
-                  How many trainings per week?
-                </Typography>
-              </Grid>
-            </Grid>
-            <Grid container direction="row" justifyContent="center" alignContent="center" sx={{ mb: 4 }}>
-              <Grid item xs={12} sx={{ padding: 1 }}>
-                {['Loose weight', 'Gain muscle', 'Improve cardio', 'Gain strength', 'Improve explosiveness'].map((goal, index) => (
-                  <Button
-                    key={index}
-                    fullWidth
-                    onClick={() => handleObjetivoButtonClick(goal, index)}
-                    variant={selectedObjetivoButton === index ? "contained" : "outlined"}
-                    sx={{ marginBottom: 1 }}
-                  >
-                    {goal}
-                  </Button>
-                ))}
-              </Grid>
-              <Grid item xs={12} sx={{ padding: 1 }}>
-                {['1 day', '2 days', '3 days', '4 days', '5 days'].map((days, index) => (
-                  <Button
-                    key={index}
-                    fullWidth
-                    onClick={() => handleDiasButtonClick(days, index)}
-                    variant={selectedDiasButton === index ? "contained" : "outlined"}
-                    sx={{ marginBottom: 1 }}
-                  >
-                    {days}
-                  </Button>
-                ))}
-              </Grid>
-            </Grid>
-            <button onClick={handleClick} className="btn">
-              <svg height="24" width="24" fill="#FFFFFF" viewBox="0 0 24 24" data-name="Layer 1" id="Layer_1" className="sparkle">
-                <path d="M10,21.236,6.755,14.745.264,11.5,6.755,8.255,10,1.764l3.245,6.491L19.736,11.5l-6.491,3.245ZM18,21l1.5,3L21,21l3-1.5L21,18l-1.5-3L18,18l-3,1.5ZM19.333,4.667,20.5,7l1.167-2.333L24,3.5,21.667,2.333,20.5,0,19.333,2.333,17,3.5Z"></path>
-              </svg>
-              <span className="text">Generate training plan</span>
-            </button>
-          </Grid>
-        </section>
-      </Grid>
-    </Grid>
-  )}
-  <Snackbar
-    open={snackbarOpen}
-    autoHideDuration={6000}
-    onClose={() => setSnackbarOpen(false)}
-    anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
-  >
-    <Alert onClose={() => setSnackbarOpen(false)} severity="error" sx={{ width: '100%' }}>
-      {snackbarMessage}
-    </Alert>
-  </Snackbar>
-</AppLayout>
+            </section>
 
+            <section>
+              <Grid
+                container
+                direction="column"
+                alignItems="center"
+                justifyContent="center"
+                sx={{ width: '60%' }}
+              >
+                <Typography variant="h5" gutterBottom style={{ color: '#fff' }}>
+                  About your training plan
+                </Typography>
+
+                <Grid container spacing={2} marginBottom={8}>
+                  <Grid item xs={12} sm={6}>
+                    <Typography variant="body1" gutterBottom style={{ color: '#fff' }}>
+                      What's your goal?
+                    </Typography>
+                    <Grid container direction="column" spacing={1}>
+                      {['Loose weight', 'Gain muscle', 'Improve cardio', 'Gain strength', 'Improve explosiveness'].map((goal, index) => (
+                        <Grid item key={index}>
+                          <Button
+                            fullWidth
+                            onClick={() => handleObjetivoButtonClick(goal, index)}
+                            variant={selectedObjetivoButton === index ? "contained" : "outlined"}
+                          >
+                            {goal}
+                          </Button>
+                        </Grid>
+                      ))}
+                    </Grid>
+                  </Grid>
+                  <Grid item xs={12} sm={6}>
+                    <Typography variant="body1" gutterBottom style={{ color: '#fff' }}>
+                      Trainings per week
+                    </Typography>
+                    <Grid container direction="column" spacing={1}>
+                      {['1 day', '2 days', '3 days', '4 days', '5 days'].map((days, index) => (
+                        <Grid item key={index}>
+                          <Button
+                            fullWidth
+                            onClick={() => handleDiasButtonClick(days, index)}
+                            variant={selectedDiasButton === index ? "contained" : "outlined"}
+                          >
+                            {days}
+                          </Button>
+                        </Grid>
+                      ))}
+                    </Grid>
+                  </Grid>
+                </Grid>
+                <button onClick={handleClick} className="btn" >
+                  <svg height="24" width="24" fill="#FFFFFF" viewBox="0 0 24 24" data-name="Layer 1" id="Layer_1" className="sparkle">
+                    <path d="M10,21.236,6.755,14.745.264,11.5,6.755,8.255,10,1.764l3.245,6.491L19.736,11.5l-6.491,3.245ZM18,21l1.5,3L21,21l3-1.5L21,18l-1.5-3L18,18l-3,1.5ZM19.333,4.667,20.5,7l1.167-2.333L24,3.5,21.667,2.333,20.5,0,19.333,2.333,17,3.5Z"></path>
+                  </svg>
+                  <span className="text">Generate training plan</span>
+                </button>
+              </Grid>
+            </section>
+          </Grid>
+        </Grid>
+      )}
+      <Snackbar
+        open={snackbarOpen}
+        autoHideDuration={6000}
+        onClose={() => setSnackbarOpen(false)}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+      >
+        <Alert onClose={() => setSnackbarOpen(false)} severity="error" sx={{ width: '100%' }}>
+          {snackbarMessage}
+        </Alert>
+      </Snackbar>
+    </AppLayout>
   );
 };

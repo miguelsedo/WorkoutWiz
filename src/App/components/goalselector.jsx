@@ -19,7 +19,7 @@ export default function GoalSelector({ options, identifier }) {
   };
 
   return (
-    <Box sx={{ width: '60%', margin: '0 auto' }}>
+    <Box sx={{ width: '100%', margin: '0 auto' }}>
       <Grid container spacing={isSmallScreen ? 1 : 2}>
         {options.map((option, index) => (
           <Grid item xs={12} key={index}>
@@ -48,7 +48,7 @@ export default function GoalSelector({ options, identifier }) {
                 color="default"
                 sx={{
                   padding: isSmallScreen ? '6px' : '8px',
-                  marginLeft: isSmallScreen ? '-6px' : '-8px',
+                  marginLeft: isSmallScreen ? '-6px' : '-10px',
                 }}
               />
               <Typography variant="body2" sx={{ flexGrow: 1, textAlign: 'center' }}>

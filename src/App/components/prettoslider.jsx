@@ -71,7 +71,7 @@ export default function CustomizedSlider({ defaultValue, minValue, maxValue, lef
   };
 
   return (
-    <Box sx={{ width: '90vw', maxWidth: '90%', padding: '0 10px' }}>
+    <Box sx={{ width: '60vw', maxWidth: '90%'}}>
       <PrettoSlider
         valueLabelDisplay="auto"
         aria-label="pretto slider"
