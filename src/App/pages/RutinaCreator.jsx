@@ -134,7 +134,7 @@ export const RutinaCreator = () => {
     The title of each day of training should contain what part of the body will be trained(Tren superrior/inferior, or Chest + Triceps, or whatever you think will describe the training accordingly, make the title as short as possible but descriptive)`;
 
       try {
-          const result = await axios.post('http://localhost:3001/interact-with-gpt', {
+          const result = await axios.post('http://api.workoutwiz.eu/interact-with-gpt', {
               prompt: prompt
           });
           const rawResponse = result.data.response;
@@ -215,7 +215,7 @@ export const RutinaCreator = () => {
       console.log('Payload to save training plan:', JSON.stringify(payload, null, 2));
 
       try {
-          const response = await axios.post('http://localhost:3001/save-training-plan', payload);
+          const response = await axios.post('http://api.workoutwiz.eu/save-training-plan', payload);
           console.log('Training Plan Saved:', response.data);
       } catch (error) {
           console.error('Error saving training plan:', error);

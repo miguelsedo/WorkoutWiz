@@ -122,7 +122,7 @@ export const InformacionPersonal = () => {
             </Grid>
             <Grid item container justifyContent="center">
               <AddDataButton
-                endpoint="http://localhost:3001/add-data"
+                endpoint="http://api.workoutwiz.eu/add-data"
                 data={{
                   tableName: 'persona',
                   data: {

@@ -14,7 +14,7 @@ const useFetchUserData = (uid) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:3001/get-persona/${uid}`);
+        const response = await fetch(`http://api.workoutwiz.eu/get-persona/${uid}`);
         if (response.ok) {
           const data = await response.json();
           setUserData({
